@@ -32,7 +32,7 @@ class Robot :  public Entity<std_msgs::msg::Empty>
     Q_OBJECT
 public:
     typedef  std::shared_ptr<Robot> SharedPtr ;
-    Robot( int64_t _id, bool _subscribe ,std::shared_ptr<rclcpp::node::Node> parentNode):Entity(_id,_subscribe,parentNode,"Robot")
+    Robot( int64_t _id, bool _subscribe ,std::shared_ptr<rclcpp::node::Node> parentNode, std::string name):Entity(_id,_subscribe,parentNode,name)
     {
 
     }
@@ -116,14 +116,14 @@ public:
 
     }
 
-    static std::vector<int64_t> ListKnownRobots(std::shared_ptr<rclcpp::node::Node> _parentNode)//rclcpp::parameter_client::AsyncParametersClient::SharedPtr parameters_client )
+    static std::vector<int64_t> ListKnownRobots(std::string prefix,std::shared_ptr<rclcpp::node::Node> _parentNode)//rclcpp::parameter_client::AsyncParametersClient::SharedPtr parameters_client )
     {
         auto parameters_client = std::make_shared<rclcpp::parameter_client::AsyncParametersClient>(_parentNode,"ParameterServer");
         std::vector<int64_t> robotIds;
         std::vector<std::string> possiblePrefixes;
         for(int i = 100; i < 20000;i++)
         {
-            possiblePrefixes.push_back("Robot"+ std::to_string(i));
+            possiblePrefixes.push_back("DemoRobot"+ std::to_string(i));
         }
         auto parameter_list_future = parameters_client->list_parameters(possiblePrefixes, 10);
 
