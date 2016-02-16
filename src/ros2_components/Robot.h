@@ -123,7 +123,7 @@ public:
         std::vector<std::string> possiblePrefixes;
         for(int i = 100; i < 20000;i++)
         {
-            possiblePrefixes.push_back("DemoRobot"+ std::to_string(i));
+            possiblePrefixes.push_back(prefix+"Robot"+ std::to_string(i));
         }
         auto parameter_list_future = parameters_client->list_parameters(possiblePrefixes, 10);
 
