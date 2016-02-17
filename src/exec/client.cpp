@@ -7,7 +7,6 @@
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
 
-
     auto node = rclcpp::node::Node::make_shared("DemoClient");
     auto found = Robot::ListKnownRobots(node,"Demo");
 
