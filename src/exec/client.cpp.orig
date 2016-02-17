@@ -7,13 +7,18 @@
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
 
+
     auto node = rclcpp::node::Node::make_shared("DemoClient");
     auto found = Robot::ListKnownRobots(node,"Demo");
+<<<<<<< HEAD
 
     auto robot = DemoRobot::RebuildRobotFromId(100,node);
     auto robot2= DemoRobot::RebuildRobotFromId(101,node);
-    auto found2 = Robot::ListKnownRobots(node,"Demo");
+    auto found2 = Robot::ListKnownRobots(node,"Demo",);
     robot->PrintTree();
+=======
+    //auto found2 = Robot::ListKnownRobots("Demo",node);
+>>>>>>> 9883cc0c2ba81072874f00a4ce9038a502509080
     rclcpp::WallRate loop_rate(30);
     while (rclcpp::ok()) {
 
