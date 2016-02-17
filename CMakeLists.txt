@@ -29,7 +29,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}_msgs
 project(ros2_components)
 
 if(NOT WIN32)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -g")
 endif()
 
 find_package(ament_cmake REQUIRED)

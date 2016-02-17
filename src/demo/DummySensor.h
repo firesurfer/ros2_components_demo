@@ -8,6 +8,7 @@ class DummySensor : public Entity<std_msgs::msg::Float32>
     Q_OBJECT
 public:
     typedef std::shared_ptr<DummySensor> SharedPtr;
+
     DummySensor(int64_t _id, bool _subscribe, std::shared_ptr< rclcpp::node::Node > _parentNode);
 
     float getValue() const;

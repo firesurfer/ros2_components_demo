@@ -32,6 +32,7 @@ class EntityBase : public QObject
 public:
 
     typedef std::shared_ptr<EntityBase> SharedPtr;
+    EntityBase(){};
     EntityBase(int64_t _id, bool _subscribe, std::shared_ptr< rclcpp::node::Node > _parentNode, std::string _className);
 
     /**
@@ -221,7 +222,12 @@ class Entity : public EntityBase
 {
 
 public:
+    /**
+     * @brief Entity
+     * EmptyConstructor for QT
+     */
 
+    Entity(){};
     /**
      * @brief Constructor of Entity
      * @param className is used together with the id to itentify topics, etc. of this entity
@@ -343,7 +349,7 @@ protected:
         int i =0;
         for(auto & child: childs)
         {
-            response->childtypes.push_back(child->getName());
+            response->childtypes.push_back(child->getClassName());
             //std::cout << "Writing child name: "<< child->getName() << " :" <<child->getId()<<std::endl;
             response->childids.push_back(child->getId());
             i++;
