@@ -1,7 +1,7 @@
 #ifndef DUMMYSENSOR_H
 #define DUMMYSENSOR_H
 #include "std_msgs/msg/float32.hpp"
-#include "Entity.h"
+#include "ros2_components/Entity.h"
 using namespace ros2_components;
 class DummySensor : public Entity<std_msgs::msg::Float32>
 {

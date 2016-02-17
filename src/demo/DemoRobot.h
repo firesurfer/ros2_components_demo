@@ -1,7 +1,7 @@
 #ifndef DEMOROBOT_H
 #define DEMOROBOT_H
 
-#include "Robot.h"
+#include "ros2_components/Robot.h"
 #include "DummySensor.h"
 using namespace ros2_components;
 class DemoRobot : public Robot
