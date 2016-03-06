@@ -15,6 +15,7 @@ mkdir -p demo_ws/src/demo
 
 ```
 cd demo_ws/src/demo
+git clone https://github.com/firesurfer/ros2_components_msg
 git clone https://github.com/firesurfer/ros2_components.git
 git clone https://github.com/firesurfer/ros2_components_demo
 ```
@@ -31,6 +32,15 @@ ament build
 ### Building with cmake
 
 ```
+cd demo_ws/src/demoe/ros2_components_msg/
+mkdir -p build
+cd build 
+ament build ..
+```
+
+
+
+```
 cd demo_ws/src/demo/ros2_components_demo
 #use nano or gedit or vim
 nano CMakeLists.txt
@@ -43,6 +53,13 @@ uncomment this line:
 Then go back to the ros2_components repo
 ```
 cd ../ros2_components
+nano CMakeLists.txt
+```
+uncomment this line:
+```
+#set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
+```
+```
 mkdir build
 cd build
 cmake ..
