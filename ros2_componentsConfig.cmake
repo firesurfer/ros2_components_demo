@@ -13,8 +13,9 @@ file(GLOB LIB_FILES
 )
 
 set(ros2_components_LIBRARIES ${LIB_FILES})
-
+MESSAGE("ros2_components lib are are : " ${ros2_components_LIBRARIES})
 set(ros2_components_INCLUDE_DIRS  
 	${ROS2_COMPONENTS_DIR}/src
+	${ROS2_COMPONENTS_DIR}/build/rosidl_generator_cpp
 
 )

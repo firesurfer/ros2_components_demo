@@ -18,6 +18,7 @@ find_package(rmw REQUIRED)
 find_package(rmw_implementation_cmake REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(ros2_components REQUIRED)
+find_package(ros2_components_msg REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -31,6 +32,7 @@ include_directories(
     ${std_msgs_INCLUDE_DIRS}
     ${Qt5Core_INCLUDE_DIRS}
 	${ros2_components_INCLUDE_DIRS}
+${ros2_components_msg_INCLUDE_DIRS}
 	${CMAKE_CURRENT_SOURCE_DIR}/src/demo
 )
 file(GLOB SRC_FILES
@@ -69,6 +71,7 @@ target_link_libraries(demo_parameter_server
 
 target_link_libraries(demo_server
     ${ros2_components_LIBRARIES}
+${ros2_components_msg_LIBRARIES}
     ros2_components_demo${target_suffix}
     ${rclcpp_LIBRARIES}
     ${rmw_LIBRARIES}
@@ -84,6 +87,7 @@ target_link_libraries(demo_server
 target_link_libraries(demo_client
 	ros2_components_demo${target_suffix}
 	${ros2_components_LIBRARIES}
+${ros2_components_msg_LIBRARIES}
     	${rclcpp_LIBRARIES}
    	${rmw_LIBRARIES}
     	${rmw_implementation_LIBRARIES}
