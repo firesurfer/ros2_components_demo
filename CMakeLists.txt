@@ -11,10 +11,10 @@ if(NOT WIN32)
 endif()
 
 #Uncomment these lines if you want to build locally without ament
-findPackageInWorkspace(ros2_components_msg)
-findPackageInWorkspace(ros2_components)
-findPackageInWorkspace(kairo3_msgs)
-findPackageInWorkspace(kairo3_components)
+#findPackageInWorkspace(ros2_components_msg)
+#findPackageInWorkspace(ros2_components)
+#findPackageInWorkspace(kairo3_msgs)
+#findPackageInWorkspace(kairo3_components)
 ################################################################
 find_package(ament_cmake REQUIRED)
 find_package(Qt5Core REQUIRED)
