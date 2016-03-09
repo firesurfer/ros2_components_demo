@@ -15,6 +15,7 @@ endif()
 #findPackageInWorkspace(ros2_components)
 #findPackageInWorkspace(kairo3_msgs)
 #findPackageInWorkspace(kairo3_components)
+#findPackageInWorkspace(ros2_simple_logger)
 ################################################################
 find_package(ament_cmake REQUIRED)
 find_package(Qt5Core REQUIRED)
@@ -25,7 +26,7 @@ find_package(rmw_implementation_cmake REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(ros2_components REQUIRED)
 find_package(ros2_components_msg REQUIRED)
-
+find_package(ros2_simple_logger REQUIRED)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -39,6 +40,7 @@ include_directories(
     ${Qt5Core_INCLUDE_DIRS}
 	${ros2_components_INCLUDE_DIRS}
 ${ros2_components_msg_INCLUDE_DIRS}
+	${ros2_simple_logger_INCLUDE_DIRS}
 	${CMAKE_CURRENT_SOURCE_DIR}/src/demo
 )
 file(GLOB SRC_FILES
@@ -61,6 +63,7 @@ target_link_libraries(ros2_components_demo${target_suffix}
     	${rmw_LIBRARIES}
     	${rmw_implementation_LIBRARIES}
     	${std_msgs_LIBRARIES}
+	${ros2_simple_logger_LIBRARIES}
     	-pthread
     	Qt5::Core
 )
@@ -70,6 +73,7 @@ target_link_libraries(demo_parameter_server
     ${rmw_LIBRARIES}
     ${rmw_implementation_LIBRARIES}
     ${std_msgs_LIBRARIES}
+${ros2_simple_logger_LIBRARIES}
     -pthread
     Qt5::Core
 
@@ -83,6 +87,7 @@ ${ros2_components_msg_LIBRARIES}
     ${rmw_LIBRARIES}
     ${rmw_implementation_LIBRARIES}
     ${std_msgs_LIBRARIES}
+${ros2_simple_logger_LIBRARIES}
     -pthread
     Qt5::Core
    
