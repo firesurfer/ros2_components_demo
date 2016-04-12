@@ -18,6 +18,7 @@ cd demo_ws/src/demo
 git clone https://github.com/firesurfer/ros2_components_msg
 git clone https://github.com/firesurfer/ros2_components.git
 git clone https://github.com/firesurfer/ros2_components_demo
+git clone hhtps://github.com/firesurfer/ros2_simple_logger
 ```
 
 ###  Building with ament
