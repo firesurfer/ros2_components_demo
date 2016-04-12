@@ -27,7 +27,7 @@ public:
 
             // Wait for the result.
 
-            if (rclcpp::spin_until_future_complete(_node, result) == rclcpp::executor::FutureReturnCode::SUCCESS)
+            if (result.wait_for(10_s) == std::future_status::ready)
             {
                 return result.get();
             }

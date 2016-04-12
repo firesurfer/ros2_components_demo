@@ -3,11 +3,25 @@
 #include <memory>
 #include "DemoRobot.h"
 #include "DummySensor.h"
-
+#include "ros2_simple_logger/Logger.h"
+rclcpp::node::Node::SharedPtr node;
+void spin()
+{
+    rclcpp::executors::SingleThreadedExecutor exec;
+    std::cout << "spinning" << std::endl;
+    rclcpp::WallRate loop_rate(20);
+    while(true)
+    {
+        exec.spin_node_some(node);
+        loop_rate.sleep();
+    }
+}
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
 
-    auto node = rclcpp::node::Node::make_shared("DemoServer");
+    node = rclcpp::node::Node::make_shared("DemoServer");
+    std::thread spinner(&spin);
+    INIT_LOGGER(node);
     DemoRobot::SharedPtr robot = std::make_shared<DemoRobot>(100, false, node);
     DemoRobot::SharedPtr robot2 = std::make_shared<DemoRobot>(101, false, node);
     for(int i = 0; i<50;i++)
@@ -36,7 +50,7 @@ int main(int argc, char **argv) {
             sensor->publish();
         };
         robot->IterateThroughAllChildsOfType<DummySensor>(writeFunc);
-        rclcpp::spin_some(node);
+
         loop_rate.sleep();
     }
 
