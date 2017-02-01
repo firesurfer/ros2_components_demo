@@ -1,4 +1,7 @@
 #ros2_components_demo
+
+#I changed a lot of stuff in the ros2_components and haven't had time to update this demo yet
+
 Demo for how to use ros2_components
 
 ## Building  on linux
